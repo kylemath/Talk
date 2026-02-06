@@ -1,0 +1,97 @@
+IMAGE GENERATION PROMPTS FOR AI RESEARCH & TEACHING SEMINAR
+================================================================
+
+PROMPT 1: RESEARCH WORKFLOW DIAGRAM
+=====================================
+
+Create a whiteboard style infographic showing a flowchart diagram illustrating the AI-powered research workflow from ideation to publication. 
+
+- A horizontal or circular flow showing 7 connected stages:
+  1. IDEATION: Light bulb icon with question marks, representing initial curiosity
+  2. LITERATURE REVIEW: Stack of papers/books with magnifying glass, AI assistant analyzing documents, citations flowing out
+  3. INTERACTIVE DEMOS: Computer screen showing interactive web simulation with adjustable parameter sliders and real-time graphs
+  4. EXPERIMENTS: AI running experiments on model responses, large online datasets, web-based games collecting single-subject data
+  5. ANALYSIS: Code editor/scripts with statistical outputs, graphs being generated automatically
+  6. AUTOMATED PIPELINE: Conveyor belt or pipeline showing data flowing through to generate figures, tables, methods sections automatically
+  7. MANUSCRIPT & SUBMISSION: Finished paper with journal logo, collaborative revision arrows, final submission checkmark
+
+- Each stage should have:
+  * Clear icon or pictograph
+  * Brief descriptive title 
+  
+- Visual elements to include:
+  * Feedback loops from later stages back to earlier ones
+  * Color coding: cool blues/purples for early stages, warm oranges/reds for later stages
+  * Small detail elements: code snippets, data visualizations, collaborative icons
+  
+- Style: Whiteboard style infographic suitable for academic presentation
+- Color palette: Professional blues, purples, with accent colors for emphasis
+- Layout: Ensure clear readability from a distance in a presentation setting
+
+
+PROMPT 2: TEACHING WORKFLOW DIAGRAM
+=====================================
+
+Create a whiteboard style infographic showing a flowchart diagram illustrating the AI-enhanced teaching workflow from resource collection to video lecture delivery.
+
+- A horizontal or circular flow showing 7 connected stages:
+  1. RESOURCE CURATION: Multiple sources (journals, books, OER) being gathered into organized folders
+  2. TEXTBOOK GENERATION: Open textbook with text flowing onto pages, style guide icon nearby
+  3. INTERACTIVE LINKS: Web of interconnected nodes showing embedded links to external resources and course sites
+  4. CHAPTER ORGANIZATION: Table of contents, hierarchical outline structure, book divided into sections
+  5. IMAGE GENERATION: Artist palette showing multiple visual styles (photorealistic, cartoon, whiteboard, medical diagrams)
+  6. SLIDE CREATION: Text outline transforming into slide decks, same content shown in different visual styles side by side
+  7. VIDEO LECTURES: Film strip with professor cameo, script pages, complete video lecture thumbnail
+
+- Each stage should have:
+  * Clear icon or pictograph
+  * Brief descriptive title
+
+- Visual elements to include:
+  * Transformation arrows showing content evolving through stages
+  * Style diversity: show same content rendered in multiple visual styles
+  * Color coding: warm greens for early stages, vibrant oranges/yellows for later stages
+
+- Style: Whiteboard style infographic suitable for academic presentation
+- Color palette: Warm, inviting educational colors (greens, oranges, yellows)
+- Layout: Ensure clear readability from a distance in a presentation setting
+
+
+PROMPT 3: EVALUATION WORKFLOW DIAGRAM
+=====================================
+
+Create a whiteboard style infographic showing a flowchart diagram illustrating the AI-driven assessment system from question generation to automated regrading.
+
+- A horizontal or circular flow showing 7 connected stages:
+  1. QUESTION GENERATION: Tree structure showing textbook branching into diverse question types (short answer, essay, problem-solving)
+  2. HANDWRITTEN COLLECTION: Classroom with projected questions, student writing on paper, stack of exam booklets
+  3. OCR PROCESSING: Handwritten page transforming into digital text, student name/ID being identified automatically
+  4. RUBRIC GENERATION: AI generating detailed grading criteria with itemized point values
+  5. AUTOMATED GRADING: Student response plus rubric flowing into AI agent, itemized scores and feedback comments flowing out
+  6. FEEDBACK DELIVERY: Results flowing to gradebook spreadsheet, emails being sent to students with detailed feedback
+  7. REGRADING LOOP: Student concern triggering rescan and reconsideration, response being drafted with resolution
+
+- Each stage should have:
+  * Clear icon or pictograph
+  * Brief descriptive title
+
+- Visual elements to include:
+  * Circular arrow from regrading back to earlier stages showing iterative improvement
+  * Handwritten text samples and their digital equivalents
+  * Color coding: cool blues for early stages, warm reds/oranges for grading and feedback stages
+
+- Style: Whiteboard style infographic suitable for academic presentation
+- Color palette: Professional blues, with warm accent colors for human interaction points
+- Layout: Ensure clear readability from a distance in a presentation setting
+
+
+GENERAL SPECIFICATIONS FOR ALL THREE DIAGRAMS:
+===============================================
+
+Resolution: High resolution suitable for projection (minimum 1920x1080)
+Format: Whiteboard style infographic
+Typography: Clear, readable sans-serif fonts
+Icons: Consistent icon style throughout each diagram
+Arrows: Clear directional flow indicators
+White space: Adequate spacing for clarity
+Scale: Readable from distance in presentation setting

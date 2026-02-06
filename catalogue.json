@@ -1,0 +1,11 @@
+{
+  "id": "VibeScienceTalk",
+  "title": "VibeScienceTalk",
+  "oneLiner": "Visual overview and outlines for talk on vibe science",
+  "demoUrl": "https://kylemath.github.io/Talk",
+  "screenshot": "https://raw.githubusercontent.com/kylemath/Talk/main/screenshot.png",
+  "kind": "project",
+  "categories": ["AI", "research", "teaching", "science"],
+  "tags": ["AI", "research", "teaching", "science"],
+  "status": "published"
+}

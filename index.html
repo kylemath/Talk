@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research and Teaching with AI: A Comprehensive Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            padding: 20px 15px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+        
+        .tab-btn.active {
+            background: white;
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+        
+        .tab-btn.research { border-top: 4px solid #667eea; }
+        .tab-btn.teaching { border-top: 4px solid #28a745; }
+        .tab-btn.evaluation { border-top: 4px solid #dc3545; }
+        
+        .tab-btn.research.active { background: linear-gradient(to bottom, rgba(102, 126, 234, 0.1), white); }
+        .tab-btn.teaching.active { background: linear-gradient(to bottom, rgba(40, 167, 69, 0.1), white); }
+        .tab-btn.evaluation.active { background: linear-gradient(to bottom, rgba(220, 53, 69, 0.1), white); }
+        
+        .tab-icon {
+            font-size: 1.4em;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Section Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .section-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        
+        .section-header.research h2 { color: #667eea; }
+        .section-header.teaching h2 { color: #28a745; }
+        .section-header.evaluation h2 { color: #dc3545; }
+        
+        .section-header p {
+            color: #666;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.05em;
+        }
+        
+        .workflow-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Workflow Steps */
+        .workflow-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 25px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .workflow-step {
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .research .workflow-step { background: #667eea; }
+        .teaching .workflow-step { background: #28a745; }
+        .evaluation .workflow-step { background: #dc3545; }
+        
+        .arrow {
+            color: #aaa;
+            font-size: 1.2em;
+        }
+        
+        /* Subsections Grid */
+        .subsections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .subsection {
+            padding: 20px;
+            background: #fafbfc;
+            border-radius: 10px;
+            border-left: 4px solid #ccc;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .subsection:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .research .subsection { border-left-color: #667eea; }
+        .teaching .subsection { border-left-color: #28a745; }
+        .evaluation .subsection { border-left-color: #dc3545; }
+        
+        .subsection-title {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-number {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.8em;
+            flex-shrink: 0;
+        }
+        
+        .research .step-number { background: #667eea; }
+        .teaching .step-number { background: #28a745; }
+        .evaluation .step-number { background: #dc3545; }
+        
+        .subsection-content {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+        
+        .highlight-box {
+            background: rgba(0,0,0,0.03);
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-size: 0.9em;
+            border-left: 3px solid;
+        }
+        
+        .research .highlight-box { border-left-color: #667eea; background: rgba(102, 126, 234, 0.05); }
+        .teaching .highlight-box { border-left-color: #28a745; background: rgba(40, 167, 69, 0.05); }
+        .evaluation .highlight-box { border-left-color: #dc3545; background: rgba(220, 53, 69, 0.05); }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 25px 40px;
+            text-align: center;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.6em;
+            }
+            
+            .tab-btn {
+                padding: 15px 10px;
+                font-size: 0.9em;
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .tab-btn span:not(.tab-icon) {
+                font-size: 0.8em;
+            }
+            
+            .subsections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-container {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Research and Teaching with AI</h1>
+            <p>A Comprehensive Framework for AI-Enhanced Academic Workflows</p>
+        </header>
+        
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn research active" onclick="openTab('research')">
+                <span class="tab-icon">🔬</span>
+                <span>Research</span>
+            </button>
+            <button class="tab-btn teaching" onclick="openTab('teaching')">
+                <span class="tab-icon">📚</span>
+                <span>Teaching</span>
+            </button>
+            <button class="tab-btn evaluation" onclick="openTab('evaluation')">
+                <span class="tab-icon">✓</span>
+                <span>Evaluation</span>
+            </button>
+        </div>
+        
+        <!-- RESEARCH TAB -->
+        <div id="research" class="tab-content research active">
+            <div class="section-header research">
+                <h2>AI-Powered Research Workflow</h2>
+                <p>From initial curiosity to final manuscript submission, AI transforms every stage of the research process—enabling rapid literature synthesis, interactive hypothesis testing, automated analysis pipelines, and iterative refinement through intelligent feedback loops.</p>
+            </div>
+            
+            <img src="Gemini_Generated_Image_zalo5bzalo5bzalo.png" alt="AI-Powered Research Workflow: Ideation to Publication" class="workflow-image">
+            
+            <div class="workflow-container">
+                <span class="workflow-step">Ideation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Literature Review</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Interactive Demos</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Experiments</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Analysis</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Automated Pipeline</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Manuscript & Submission</span>
+            </div>
+            
+            <div class="subsections-grid">
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">1</span>
+                        <span>Ideation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Start with initial curiosity and a research question. AI helps explore the problem space and identify promising directions worth investigating.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">2</span>
+                        <span>Literature Review</span>
+                    </h3>
+                    <div class="subsection-content">
+                        AI searches databases, summarizes key papers, and identifies research gaps. The system generates properly formatted citations automatically.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">3</span>
+                        <span>Interactive Demos</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Build web-based simulations with adjustable parameters to test hypotheses in real-time. Share interactive demos with collaborators for immediate feedback.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">4</span>
+                        <span>Experiments</span>
+                    </h3>
+                    <div class="subsection-content">
+                        AI runs experiments on AI model responses, large online datasets, or single-subject data collected through web-based games and tasks.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">5</span>
+                        <span>Analysis</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Develop reproducible analysis scripts with automated statistics and visualizations. Modular code handles different stages with detailed logging.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">6</span>
+                        <span>Automated Pipeline</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Data flows through pipelines to automatically generate figures, tables, and methods sections. Changes propagate through all outputs to maintain consistency.
+                        <div class="highlight-box">
+                            <strong>Key Advantage:</strong> Changes propagate through all figures, tables, and results descriptions automatically.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">7</span>
+                        <span>Manuscript & Submission</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Format manuscripts to journal requirements, prepare cover letters, and handle collaborative revision. Submit the finished paper with all supplementary materials.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TEACHING TAB -->
+        <div id="teaching" class="tab-content teaching">
+            <div class="section-header teaching">
+                <h2>AI-Enhanced Teaching & Content Creation</h2>
+                <p>Revolutionize course development from resource curation to multimedia delivery—generating comprehensive textbooks with embedded resources, creating visually stunning presentations across multiple styles, and producing automated video lectures with AI-generated narration and imagery.</p>
+            </div>
+            
+            <img src="Gemini_Generated_Image_o4bxtdo4bxtdo4bx.png" alt="AI-Enhanced Teaching Workflow: Resource to Video Lecture" class="workflow-image">
+            
+            <div class="workflow-container">
+                <span class="workflow-step">Resource Curation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Textbook Generation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Interactive Links</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Chapter Organization</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Image Generation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Slide Creation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Video Lectures</span>
+            </div>
+            
+            <div class="subsections-grid">
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">1</span>
+                        <span>Resource Curation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Gather source materials, readings, and data from academic journals, OER, and authoritative sources. Organize resources by topic and learning objective.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">2</span>
+                        <span>Textbook Generation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Generate detailed chapters with consistent style and tone using AI and style guides. Content adapts to specific educational levels and course requirements.
+                        <div class="highlight-box">
+                            <strong>Customization:</strong> Content tailors to course objectives, student levels, and institutional requirements.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">3</span>
+                        <span>Interactive Links</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Embed links to external websites, course sites, and supplementary materials throughout the text. Transform static content into an interconnected learning ecosystem.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">4</span>
+                        <span>Chapter Organization</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Generate tables of contents, unit structures, and section outlines. Topics organize in logical sequences that align with learning objectives.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">5</span>
+                        <span>Image Generation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Create illustrations in any style—photorealistic, cartoon, whiteboard, or medical diagrams. Visual consistency maintains across all course materials.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">6</span>
+                        <span>Slide Creation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Generate slides from text outlines in multiple visual styles. Same content renders differently for different audiences and presentation contexts.
+                        <div class="highlight-box">
+                            <strong>Versatility:</strong> Same content renders in multiple styles for different audiences and contexts.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">7</span>
+                        <span>Video Lectures</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Generate scripts for each slide and create AI videos with professor cameos. Produce complete video lectures at scale for asynchronous learning.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EVALUATION TAB -->
+        <div id="evaluation" class="tab-content evaluation">
+            <div class="section-header evaluation">
+                <h2>AI-Driven Assessment & Evaluation</h2>
+                <p>Reimagine student evaluation with intelligent automation—from generating diverse question banks and collecting handwritten responses, to automated grading with detailed feedback, iterative regrading based on student queries, and seamless gradebook integration.</p>
+            </div>
+            
+            <img src="Gemini_Generated_Image_es0y8ues0y8ues0y.png" alt="AI-Driven Assessment Workflow: Question Generation to Regrading" class="workflow-image">
+            
+            <div class="workflow-container">
+                <span class="workflow-step">Question Generation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Handwritten Collection</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">OCR Processing</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Rubric Generation</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Automated Grading</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Feedback Delivery</span>
+                <span class="arrow">→</span>
+                <span class="workflow-step">Regrading</span>
+            </div>
+            
+            <div class="subsections-grid">
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">1</span>
+                        <span>Question Generation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Generate questions from source material in varying formats—short answer, essay, and problem-solving. Build test banks aligned with learning objectives.
+                        <div class="highlight-box">
+                            <strong>Key Insight:</strong> Handwritten responses ensure authenticity while AI grading enables detailed feedback at scale.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">2</span>
+                        <span>Handwritten Collection</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Use projected questions or exam booklets to collect handwritten responses. Scan completed work for digital processing while preserving academic integrity.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">3</span>
+                        <span>OCR Processing</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Extract text from scanned images using LLM APIs for near-perfect handwriting recognition. Automatically identify student names and ID numbers.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">4</span>
+                        <span>Rubric Generation</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Generate comprehensive grading criteria from question text with itemized scoring. Point allocations ensure consistency across all student responses.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">5</span>
+                        <span>Automated Grading</span>
+                    </h3>
+                    <div class="subsection-content">
+                        AI grading agent processes student responses with rubrics to return itemized scores and written feedback for each criterion. Scales to any class size.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">6</span>
+                        <span>Feedback Delivery</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Results flow to the gradebook automatically. Email personalized feedback with scores and developmental comments to each student.
+                    </div>
+                </div>
+                
+                <div class="subsection">
+                    <h3 class="subsection-title">
+                        <span class="step-number">7</span>
+                        <span>Regrading Loop</span>
+                    </h3>
+                    <div class="subsection-content">
+                        Students submit concerns and the system rescans and reconsiders grades. Draft detailed responses—either adjusting grades or explaining why they were appropriate.
+                        <div class="highlight-box">
+                            <strong>Iterative Improvement:</strong> Thoughtful responses to concerns without overwhelming instructor time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>Research and Teaching with AI</strong></p>
+            <p>Transforming academia through intelligent automation and enhanced human capability</p>
+        </footer>
+    </div>
+    
+    <script>
+        function openTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            document.querySelector(`.tab-btn.${tabName}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>

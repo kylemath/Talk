@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Attentional Blink: A Journey Through Temporal Attention</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>The Attentional Blink</h1>
+            <p class="subtitle">Exploring the Temporal Limits of Human Attention</p>
+        </div>
+    </header>
+
+    <nav class="tab-navigation">
+        <button class="tab-btn active" data-tab="intro">Introduction</button>
+        <button class="tab-btn" data-tab="temporal">Temporal Selection</button>
+        <button class="tab-btn" data-tab="neural">Neural Mechanisms</button>
+        <button class="tab-btn" data-tab="discrete">Discrete vs Continuous</button>
+        <button class="tab-btn" data-tab="models">Theoretical Models</button>
+        <button class="tab-btn" data-tab="demo">Interactive Demo</button>
+    </nav>
+
+    <main class="container">
+        <!-- Tab 1: Introduction -->
+        <section id="intro" class="tab-content active">
+            <h2>What is the Attentional Blink?</h2>
+            
+            <div class="content-grid">
+                <div class="card">
+                    <h3>The Phenomenon</h3>
+                    <p>The <strong>Attentional Blink (AB)</strong> is a remarkable limitation in human attention: when trying to detect two targets in rapid succession, people often miss the second target if it appears within 200-500 milliseconds of the first.</p>
+                    
+                    <div class="highlight-box">
+                        <p><strong>Key Finding:</strong> "Two episodes of attentional selection cannot occur very close in time"</p>
+                        <p class="citation">— Goodbourn et al., 2016</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>RSVP Paradigm</h3>
+                    <p><strong>Rapid Serial Visual Presentation (RSVP)</strong> is the experimental technique used to study the attentional blink:</p>
+                    <ul>
+                        <li>Visual stimuli presented sequentially at the same location</li>
+                        <li>Rapid presentation rate: 8-12 Hz (83-125 ms per item)</li>
+                        <li>Participants identify target items among distractors</li>
+                        <li>T1 = First target, T2 = Second target</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <h3>Typical Attentional Blink Curve</h3>
+                <canvas id="abCurveChart"></canvas>
+                <div class="controls">
+                    <label>
+                        Adjust Blink Depth:
+                        <input type="range" id="blinkDepth" min="0.1" max="0.9" step="0.1" value="0.5">
+                        <span id="blinkDepthValue">50%</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <h3>Timeline of Discovery</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <h4>Individual Differences</h4>
+                            <p>Willems & Martens show AB varies greatly between individuals; broader attentional focus correlates with better performance</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2017</div>
+                        <div class="timeline-content">
+                            <h4>Neural Insights</h4>
+                            <p>Slagter et al. reveal ventral striatum's role using intracranial EEG; Marti & Dehaene show discrete and continuous mechanisms</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h4>Neural Dynamics</h4>
+                            <p>Tang et al. use multivariate encoding to show feature selectivity enhanced for seen targets, suppressed for missed ones</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4>ERP Integration</h4>
+                            <p>Zivony & Lamy's comprehensive review identifies two disrupted processes: attentional engagement (N2pc) and working memory encoding (P3b)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Temporal Selection -->
+        <section id="temporal" class="tab-content">
+            <h2>Temporal Selection & Individual Differences</h2>
+
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Not a Universal Limitation</h3>
+                    <p>Contrary to early assumptions, the attentional blink is <em>not</em> the same for everyone. Willems & Martens (2016) showed that AB performance varies dramatically across individuals.</p>
+                    
+                    <div class="equation-box">
+                        <p><strong>Key Factors:</strong></p>
+                        <ul>
+                            <li><strong>Executive Working Memory:</strong> Higher capacity → Better AB performance</li>
+                            <li><strong>Attentional Focus:</strong> Broader focus → Less severe blink</li>
+                            <li><strong>Metaphor:</strong> "Seeing the bigger picture"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Temporal Precision</h3>
+                    <p>Goodbourn et al. (2016) examined not just accuracy, but also the <em>characteristics of errors</em> during the blink.</p>
+                    
+                    <div class="math-display">
+                        $$\text{Temporal Selection Quality} = f(\text{Latency}, \text{Precision})$$
+                    </div>
+                    
+                    <p>Analysis of serial position errors revealed that the AB affects both:</p>
+                    <ul>
+                        <li><strong>Latency:</strong> Timing delay in selection</li>
+                        <li><strong>Precision:</strong> Variability in temporal selection</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <h3>Individual Differences Simulation</h3>
+                <canvas id="individualDiffChart"></canvas>
+                <div class="controls">
+                    <label>
+                        Working Memory Capacity:
+                        <input type="range" id="wmCapacity" min="1" max="5" step="0.5" value="3">
+                        <span id="wmValue">3.0</span>
+                    </label>
+                    <label>
+                        Attentional Focus (breadth):
+                        <input type="range" id="attentionFocus" min="1" max="5" step="0.5" value="3">
+                        <span id="focusValue">3.0</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Spatial Attention vs Conscious Perception</h3>
+                <p>Alef et al. (2020) disentangled the roles of different cognitive processes:</p>
+                
+                <div class="finding-list">
+                    <div class="finding-item">
+                        <span class="finding-number">1</span>
+                        <div>
+                            <strong>Spatial Attention:</strong> Neither necessary nor sufficient for the AB
+                        </div>
+                    </div>
+                    <div class="finding-item">
+                        <span class="finding-number">2</span>
+                        <div>
+                            <strong>Conscious Perception:</strong> Necessary but not sufficient
+                        </div>
+                    </div>
+                    <div class="finding-item">
+                        <span class="finding-number">3</span>
+                        <div>
+                            <strong>Working Memory Encoding:</strong> Consciously perceiving a task-relevant event triggers the blink by initiating WM encoding
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Neural Mechanisms -->
+        <section id="neural" class="tab-content">
+            <h2>Neural Mechanisms of the Attentional Blink</h2>
+
+            <div class="content-grid">
+                <div class="card neural-card">
+                    <h3>Ventral Striatum & Subcortical Gating</h3>
+                    <p><strong>Slagter et al. (2017)</strong> used rare intracranial EEG recordings to reveal the ventral striatum's crucial role:</p>
+                    
+                    <div class="neural-timeline">
+                        <div class="neural-event">
+                            <div class="time-marker">80 ms</div>
+                            <div class="event-description">
+                                <strong>Early Prediction</strong><br>
+                                Increased alpha (8-12 Hz) and low beta (12-20 Hz) activity<br>
+                                → Foreshadows T2 miss
+                            </div>
+                        </div>
+                        <div class="neural-event">
+                            <div class="time-marker">200-400 ms</div>
+                            <div class="event-description">
+                                <strong>Conscious Access</strong><br>
+                                Increased beta activity (12-30 Hz)<br>
+                                → Only for consciously perceived targets
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p><strong>Mechanism:</strong> The ventral striatum gates cortical information flow, contributing to conscious perception</p>
+                    </div>
+                </div>
+
+                <div class="card neural-card">
+                    <h3>ERP Components</h3>
+                    <p><strong>Zivony & Lamy (2022)</strong> synthesized decades of ERP research to identify disrupted processes:</p>
+                    
+                    <div class="erp-components">
+                        <div class="erp-item intact">
+                            <h4>P1 (Intact)</h4>
+                            <p>Early sensory processing remains unaffected</p>
+                        </div>
+                        <div class="erp-item disrupted">
+                            <h4>N2pc (Disrupted)</h4>
+                            <p>Smaller & delayed → Attentional engagement failure</p>
+                        </div>
+                        <div class="erp-item intact">
+                            <h4>N400 (Intact)</h4>
+                            <p>Semantic processing can remain intact</p>
+                        </div>
+                        <div class="erp-item disrupted">
+                            <h4>P3b (Absent)</h4>
+                            <p>Missing → Working memory encoding failure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <h3>ERP Component Timeline</h3>
+                <canvas id="erpChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h3>Feature-Selective Neural Dynamics</h3>
+                <p><strong>Tang et al. (2020)</strong> used multivariate encoding analyses with oriented gratings to track feature-selective information:</p>
+                
+                <div class="math-display">
+                    $$\text{Neural Selectivity}(t) = \begin{cases} 
+                    \text{Enhanced} & \text{if target detected} \\
+                    \text{Suppressed} & \text{if target missed} \\
+                    \text{Baseline} & \text{for distractors}
+                    \end{cases}$$
+                </div>
+
+                <div class="visualization-container">
+                    <canvas id="featureSelectivityChart"></canvas>
+                    <div class="controls">
+                        <label>
+                            Target Detection:
+                            <select id="detectionState">
+                                <option value="detected">Detected</option>
+                                <option value="missed">Missed</option>
+                                <option value="distractor">Distractor</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+
+                <p><strong>Key Insight:</strong> The AB involves both short- and long-range neural interactions between competing visual representations vying for conscious access.</p>
+            </div>
+        </section>
+
+        <!-- Tab 4: Discrete vs Continuous -->
+        <section id="discrete" class="tab-content">
+            <h2>Discrete and Continuous Mechanisms</h2>
+
+            <div class="card featured-card">
+                <h3>Marti & Dehaene (2017): Dual-Process Model</h3>
+                <p>Using MEG, this groundbreaking study revealed that temporal selection involves <strong>two sequential mechanisms</strong>:</p>
+            </div>
+
+            <div class="process-flow">
+                <div class="process-stage">
+                    <div class="stage-header continuous">
+                        <h4>Stage 1: Continuous Processing</h4>
+                        <span class="timing">~150 ms</span>
+                    </div>
+                    <div class="stage-content">
+                        <p><strong>Location:</strong> Ventral visual areas</p>
+                        <p><strong>Mechanism:</strong> Parallel processing of all images</p>
+                        <p><strong>Effect:</strong> Responses to multiple images continuously amplified</p>
+                        
+                        <div class="math-display">
+                            $$A(t) = A_0 \cdot e^{\lambda t} \quad \text{where } \lambda = \text{amplification rate}$$
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arrow-connector">→</div>
+
+                <div class="process-stage">
+                    <div class="stage-header discrete">
+                        <h4>Stage 2: Discrete Selection</h4>
+                        <span class="timing">~350 ms</span>
+                    </div>
+                    <div class="stage-content">
+                        <p><strong>Location:</strong> Visual and parietal areas</p>
+                        <p><strong>Mechanism:</strong> All-or-none threshold activation</p>
+                        <p><strong>Effect:</strong> Single image isolated for conscious report</p>
+                        
+                        <div class="math-display">
+                            $$S(A) = \begin{cases} 
+                            1 & \text{if } A > \theta \\
+                            0 & \text{if } A \leq \theta
+                            \end{cases}$$
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <h3>Continuous to Discrete Transition</h3>
+                <canvas id="dualProcessChart"></canvas>
+                <div class="controls">
+                    <label>
+                        Amplification Rate (λ):
+                        <input type="range" id="ampRate" min="0.5" max="3" step="0.1" value="1.5">
+                        <span id="ampValue">1.5</span>
+                    </label>
+                    <label>
+                        Selection Threshold (θ):
+                        <input type="range" id="threshold" min="0.3" max="0.9" step="0.05" value="0.6">
+                        <span id="threshValue">0.6</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Key Implications</h3>
+                <div class="implication-grid">
+                    <div class="implication">
+                        <strong>Multiple Items Coexist</strong>
+                        <p>The brain can process several images in parallel during the continuous phase</p>
+                    </div>
+                    <div class="implication">
+                        <strong>Competition for Access</strong>
+                        <p>Only one item crosses the threshold for conscious report</p>
+                    </div>
+                    <div class="implication">
+                        <strong>Not Just Bottleneck</strong>
+                        <p>The AB reflects both gradual amplification and discrete selection</p>
+                    </div>
+                    <div class="implication">
+                        <strong>Temporal Integration</strong>
+                        <p>Explains why some items can "catch the wave" of an existing attentional episode</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: Theoretical Models -->
+        <section id="models" class="tab-content">
+            <h2>Theoretical Models of the Attentional Blink</h2>
+
+            <div class="model-container">
+                <div class="card model-card">
+                    <h3>eSTST Model</h3>
+                    <p class="model-subtitle">episodic Simultaneous Type/Serial Token</p>
+                    
+                    <div class="model-description">
+                        <p>The eSTST model proposes that visual attention samples information from <strong>discrete temporal episodes</strong>, with breaks between episodes characterized by suppressed attention (the attentional blink).</p>
+                    </div>
+
+                    <div class="model-components">
+                        <h4>Key Components:</h4>
+                        
+                        <div class="component">
+                            <h5>1. The "Blaster" (Transient Attentional Enhancement)</h5>
+                            <p>A spatially specific attention boost triggered when task-relevant items are detected.</p>
+                            
+                            <div class="math-display">
+                                $$B(t) = B_{\text{max}} \cdot e^{-\frac{(t-t_0)^2}{2\sigma^2}} \quad \text{(Gaussian pulse)}$$
+                            </div>
+                            
+                            <p><strong>Neural Correlate:</strong> N2pc component (posterior-contralateral negativity)</p>
+                        </div>
+
+                        <div class="component">
+                            <h5>2. Episodic Selection</h5>
+                            <p>Attention operates in temporal "chunks" rather than continuously.</p>
+                            
+                            <div class="math-display">
+                                $$P(\text{detection}) = \begin{cases}
+                                P_{\text{high}} & \text{if } t \in \text{Episode} \\
+                                P_{\text{low}} & \text{if } t \in \text{Blink}
+                                \end{cases}$$
+                            </div>
+                        </div>
+
+                        <div class="component">
+                            <h5>3. Type vs Token Processing</h5>
+                            <p><strong>Type:</strong> Category identification (parallel)<br>
+                            <strong>Token:</strong> Individual exemplar binding (serial bottleneck)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>eSTST Blaster Simulation</h3>
+                    <canvas id="blasterChart"></canvas>
+                    <div class="controls">
+                        <label>
+                            Blaster Amplitude (B<sub>max</sub>):
+                            <input type="range" id="blasterAmp" min="0.5" max="2" step="0.1" value="1">
+                            <span id="blasterAmpValue">1.0</span>
+                        </label>
+                        <label>
+                            Blaster Duration (σ):
+                            <input type="range" id="blasterDuration" min="50" max="300" step="10" value="150">
+                            <span id="blasterDurValue">150 ms</span>
+                        </label>
+                        <label>
+                            T1-T2 SOA (Stimulus Onset Asynchrony):
+                            <input type="range" id="soa" min="100" max="800" step="50" value="300">
+                            <span id="soaValue">300 ms</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="model-container">
+                <div class="card model-card">
+                    <h3>Signal Detection Model (2024)</h3>
+                    <p class="model-subtitle">Decoupling Sensitivity and Bias</p>
+                    
+                    <div class="model-description">
+                        <p>Recent work reveals that the AB specifically impairs <strong>perceptual sensitivity</strong> while leaving <strong>choice bias</strong> unaffected.</p>
+                    </div>
+
+                    <div class="math-display">
+                        $$d' = Z(\text{Hit Rate}) - Z(\text{False Alarm Rate})$$
+                        $$c = -\frac{1}{2}[Z(\text{Hit Rate}) + Z(\text{False Alarm Rate})]$$
+                    </div>
+
+                    <div class="model-components">
+                        <div class="component">
+                            <h5>Sensitivity (d') - IMPAIRED during AB</h5>
+                            <p>Measures the ability to discriminate target from non-target</p>
+                            <p><strong>Neural markers:</strong> N2p (parieto-occipital), P3</p>
+                        </div>
+
+                        <div class="component">
+                            <h5>Bias (c) - UNAFFECTED during AB</h5>
+                            <p>Criterion for decision-making remains constant</p>
+                            <p><strong>Neural markers:</strong> Frontoparietal beta coherence (20-30 Hz)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visualization-container">
+                    <h3>Signal Detection Theory Visualization</h3>
+                    <canvas id="sdtChart"></canvas>
+                    <div class="controls">
+                        <label>
+                            Sensitivity (d'):
+                            <input type="range" id="sensitivity" min="0.5" max="4" step="0.1" value="2">
+                            <span id="sensValue">2.0</span>
+                        </label>
+                        <label>
+                            Criterion (c):
+                            <input type="range" id="criterion" min="-1" max="1" step="0.1" value="0">
+                            <span id="critValue">0.0</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Model Comparison</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Core Mechanism</th>
+                            <th>Temporal Dynamics</th>
+                            <th>Key Prediction</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>eSTST</strong></td>
+                            <td>Episodic attention with transient enhancement</td>
+                            <td>Discrete episodes (~150-300 ms)</td>
+                            <td>Clustered targets reported better than interleaved</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Signal Detection</strong></td>
+                            <td>Sensitivity impairment with preserved bias</td>
+                            <td>Sensitivity follows U-shaped recovery</td>
+                            <td>Distinct neural signatures for detection vs discrimination</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dual Process (Marti & Dehaene)</strong></td>
+                            <td>Continuous amplification → Discrete selection</td>
+                            <td>150 ms (continuous) → 350 ms (discrete)</td>
+                            <td>Multiple items processed but only one selected</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tab 6: Interactive Demo -->
+        <section id="demo" class="tab-content">
+            <h2>Interactive Attentional Blink Demo</h2>
+
+            <div class="card demo-instructions">
+                <h3>Experience the Attentional Blink</h3>
+                <p>This demo simulates a rapid serial visual presentation (RSVP) task. Try to identify both target letters (shown in blue) among the distractor letters.</p>
+                
+                <div class="instructions-list">
+                    <ol>
+                        <li>Adjust the presentation rate and T1-T2 lag below</li>
+                        <li>Click "Start Demo" to begin</li>
+                        <li>Watch the rapid sequence of letters</li>
+                        <li>After the sequence, report which target letters you saw</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="demo-controls">
+                <div class="control-group">
+                    <label>
+                        Presentation Rate:
+                        <input type="range" id="demoRate" min="80" max="150" step="10" value="100">
+                        <span id="demoRateValue">100 ms/item</span>
+                    </label>
+                </div>
+                <div class="control-group">
+                    <label>
+                        T1-T2 Lag (items):
+                        <input type="range" id="demoLag" min="1" max="8" step="1" value="3">
+                        <span id="demoLagValue">3</span>
+                    </label>
+                </div>
+                <button id="startDemo" class="demo-button">Start Demo</button>
+            </div>
+
+            <div class="demo-display" id="demoDisplay">
+                <div class="demo-letter" id="demoLetter"></div>
+            </div>
+
+            <div class="demo-response" id="demoResponse" style="display: none;">
+                <h4>What did you see?</h4>
+                <p>Select the target letters you detected:</p>
+                <div id="responseOptions"></div>
+                <button id="submitResponse" class="demo-button">Submit</button>
+            </div>
+
+            <div class="demo-results" id="demoResults" style="display: none;">
+                <h4>Results</h4>
+                <div id="resultsContent"></div>
+                <button id="resetDemo" class="demo-button">Try Again</button>
+            </div>
+
+            <div class="card">
+                <h3>What Just Happened?</h3>
+                <p>If you missed the second target (T2) when it appeared shortly after the first (T1), you just experienced the attentional blink!</p>
+                
+                <div class="explanation-grid">
+                    <div class="explanation-item">
+                        <h5>Lag 1 Sparing</h5>
+                        <p>When T2 appears immediately after T1 (lag 1), it's often detected because it "catches the wave" of the same attentional episode.</p>
+                    </div>
+                    <div class="explanation-item">
+                        <h5>Lag 2-4 Deficit</h5>
+                        <p>T2 detection is worst at lags 2-4 (~200-400 ms) when the attentional system is still processing T1.</p>
+                    </div>
+                    <div class="explanation-item">
+                        <h5>Recovery</h5>
+                        <p>By lag 7-8 (~700-800 ms), the attentional system has recovered and T2 detection returns to baseline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualization-container">
+                <h3>Your Performance vs Typical AB Curve</h3>
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p><strong>Key References:</strong></p>
+            <p class="references">
+                Goodbourn et al. (2016) • Willems & Martens (2016) • Slagter et al. (2017) • 
+                Marti & Dehaene (2017) • Tang et al. (2020) • Alef et al. (2020) • 
+                Becker et al. (2021) • Zivony & Lamy (2022)
+            </p>
+            <p class="copyright">Compiled February 2026 • Interactive Educational Resource</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

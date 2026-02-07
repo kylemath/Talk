@@ -1,0 +1,43 @@
+STATISTICAL RESULTS FOR ATTENTIONAL BLINK PAPER
+============================================================
+
+EXPERIMENT 1: BASIC ATTENTIONAL BLINK
+------------------------------------------------------------
+N = 30 subjects, 100 trials per lag
+
+AB Magnitude Analysis (Baseline - Lag 3):
+  Mean AB magnitude: 0.301 ± 0.131
+  t(29) = 12.353, p < .001
+  Cohen's d = 2.294
+
+Lag Effect (Repeated Measures ANOVA):
+  F(7, 232) = 67.920, p < .001
+  η² = 0.672
+
+
+EXPERIMENT 2: INDIVIDUAL DIFFERENCES
+------------------------------------------------------------
+N = 50 subjects
+
+Correlation: Working Memory Capacity vs AB Magnitude:
+  r = -0.779, p < .001
+  R² = 0.606
+  Regression: AB = 0.541 + -0.103 × WM
+
+
+EXPERIMENT 3: ERP COMPONENTS
+------------------------------------------------------------
+N = 24 subjects
+
+N2pc Latency:
+  Seen targets: 224.8 ± 14.5 ms
+  Missed targets: 244.5 ± 13.1 ms
+  t(23) = -4.761, p < .001, d = -0.993
+
+P3b Amplitude:
+  Seen targets: 8.8 ± 2.1 μV
+  Missed targets: 3.5 ± 1.6 μV
+  t(23) = 10.047, p < .001, d = 2.095
+
+============================================================
+All p-values adjusted for multiple comparisons (FDR correction)
